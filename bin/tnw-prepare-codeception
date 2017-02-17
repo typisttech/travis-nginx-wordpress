@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+function tnw-prepare-codeception {
+  WP_CORE_DIR=${WP_CORE_DIR-/tmp/wordpress/}
+	DB_DUMP=${DB_DUMP-$TRAVIS_BUILD_DIR/tests/_data/dump.sql}
+	DB_NAME_INT=${DB_NAME_INT-wordpress_int}
+
+	mysql -u root -e "create database IF NOT EXISTS $DB_NAME_INT"
+
+	if [ -f $DB_DUMP ]; then
+		# Import DB dump
+		wp db import $DB_DUMP --path=$WP_CORE_DIR;
+	else
+		# Create directory if not exists
+		mkdir -p "$(dirname "$DB_DUMP")";
+	fi
+
+	# Upgrade DB
+	wp core update-db --path=$WP_CORE_DIR
+	# Export a dump of the just installed database to the _data folder
+  wp db export $DB_DUMP --path=$WP_CORE_DIR
+}
+
+tnw-prepare-codeception

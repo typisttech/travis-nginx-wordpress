@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+function tnw-install-wpcs {
+	WPCS_DIR=${WPCS_DIR-$HOME/wpcs}
+
+	git clone --depth=1 -b master https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git $WPCS_DIR
+	phpcs --config-set installed_paths $WPCS_DIR
+}
+
+tnw-install-wpcs

@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+function tnw-install-wordpress {
+	WP_DOMAIN=${WP_DOMAIN-wp.dev}
+	WP_PORT=${WP_PORT-8080}
+	ADMIN_USER=${ADMIN_USER-admin}
+	ADMIN_PASSWORD=${ADMIN_PASSWORD-password}
+	ADMIN_EMAIL=${ADMIN_EMAIL-admin@wp.dev}
+	WP_TITLE=${WP_TITLE-'Brought to you by Typist Tech'}
+	WP_CORE_DIR=${WP_CORE_DIR-/tmp/wordpress/}
+	DB_HOST=${DB_HOST-localhost}
+	DB_NAME=${DB_NAME-wordpress}
+	DB_USER=${DB_USER-root}
+	WP_VERSION=${WP_VERSION-latest}
+	WP_LOCALE=${WP_LOCALE-en_US}
+
+	# Prepare WordPress database
+	mysql -u root -e "create database IF NOT EXISTS $DB_NAME"
+
+	# Install WordPress
+  wp core download --version=$WP_VERSION --locale=$WP_LOCALE --force --path=$WP_CORE_DIR
+
+  wp core config --dbname=$DB_NAME --dbuser=$DB_USER --dbhost=$DB_HOST --locale=$WP_LOCALE --force --path=$WP_CORE_DIR --extra-php <<PHP
+	define( 'AUTOMATIC_UPDATER_DISABLED', true );
+PHP
+
+  wp core install --url="$WP_DOMAIN:$WP_PORT" --admin_user=$ADMIN_USER --admin_password=$ADMIN_PASSWORD --admin_email=$ADMIN_EMAIL --title="$WP_TITLE" --skip-email --path=$WP_CORE_DIR
+}
+
+tnw-install-wordpress
