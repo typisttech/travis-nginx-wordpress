@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+function tnw-upload-coverage-to-scrutinizer {
+	TNW_TEST_COVERAGE=${TNW_TEST_COVERAGE-$TRAVIS_BUILD_DIR/tests/_output/coverage.xml}
+	TNW_TEST_COVERAGE_FORMAT=${TNW_TEST_COVERAGE_FORMAT-"php-clover"}
+
+	wget https://scrutinizer-ci.com/ocular.phar
+	php ocular.phar code-coverage:upload --format=$TNW_TEST_COVERAGE_FORMAT $TNW_TEST_COVERAGE
+}
+
+tnw-upload-coverage-to-scrutinizer

@@ -1,0 +1,51 @@
+{
+  "name": "typisttech/travis-nginx-wordpress",
+  "description": "A basic template for Nginx and WordPress running on Travis CI's container based infrastructure.",
+  "version": "1.0.0",
+  "keywords": [
+    "travis",
+    "nginx",
+    "wordpress",
+    "wpcs",
+    "phpcs",
+    "codeception",
+    "wp browser",
+    "acceptance test"
+  ],
+  "homepage": "https://github.com/TypistTech/travis-nginx-wordpress",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Typist Tech",
+      "email": "info@typist.tech",
+      "homepage": "https://www.typist.tech/"
+    },
+    {
+      "name": "Tang Rufus",
+      "email": "tangrufus@gmail.com",
+      "homepage": "https://www.typist.tech/",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "email": "travis-nginx-wordpress@typist.tech",
+    "issues": "https://github.com/TypistTech/travis-nginx-wordpress/issues",
+    "source": "https://github.com/TypistTech/travis-nginx-wordpress"
+  },
+  "require": {
+    "squizlabs/php_codesniffer": "^2.7.0",
+    "wp-cli/wp-cli": "^1.0.0"
+  },
+  "suggest": {
+    "codeception/codeception": "Modern full-stack testing framework for PHP",
+    "lucatume/wp-browser": "WordPress specific set of extensions for Codeception"
+  },
+  "bin": [
+    "bin/tnw-install-nginx",
+    "bin/tnw-install-wordpress",
+    "bin/tnw-install-wpcs",
+    "bin/tnw-prepare-codeception",
+    "bin/tnw-send-result-to-saucelabs",
+		"bin/tnw-upload-coverage-to-scrutinizer"
+  ]
+}

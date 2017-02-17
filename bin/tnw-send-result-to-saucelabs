@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+function tnw-sauce-test-result {
+	if [[ "$TRAVIS_TEST_RESULT" == "0" ]]
+	then
+		echo true
+	else
+		echo false
+	fi
+}
+
+function tnw-sauce-job-id {
+	TNW_SAUCE_BUILD=${TNW_SAUCE_BUILD-$TRAVIS_JOB_NUMBER}
+
+	echo $(curl -u $SAUCE_USERNAME:$SAUCE_ACCESS_KEY https://saucelabs.com/rest/v1/$SAUCE_USERNAME/jobs\?full=true\&format=json | jq ".[] | select(.build == \"$TNW_SAUCE_BUILD\") | .id" | sed -e 's/^"//' -e 's/"$//')
+}
+
+function tnw-send-result-to-saucelabs {
+	TNW_SAUCE_JOB_ID=${TNW_SAUCE_JOB_ID-$(tnw-sauce-job-id)}
+	TNW_SAUCE_TEST_RESULT=${TNW_SAUCE_TEST_RESULT-$(tnw-sauce-test-result)}
+
+	curl -X PUT \
+	-H 'Content-Type: application/json' \
+	-s -d "{ \"passed\": $TNW_SAUCE_TEST_RESULT }" \
+	-u $SAUCE_USERNAME:$SAUCE_ACCESS_KEY \
+	https://saucelabs.com/rest/v1/$SAUCE_USERNAME/jobs/$TNW_SAUCE_JOB_ID
+}
+
+tnw-send-result-to-saucelabs
