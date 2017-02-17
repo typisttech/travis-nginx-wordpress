@@ -18,11 +18,16 @@ A basic template for Nginx and WordPress running on Travis CI's container based 
 - [What is the purpose of this repo?](#what-is-the-purpose-of-this-repo)
 - [Installation and Usage](#installation-and-usage)
 - [Customization](#customization)
-- [How does the installation works?](#how-does-the-installation-works)
+- [How does it works?](#how-does-it-works)
   - [WordPress](#wordpress)
   - [Nginx](#nginx)
-- [Known issues](#known-issues)
-- [See also](#see-also)
+  - [Codeception](#codeception)
+  - [WordPress coding standard](#wordpress-coding-standard)
+  - [Sauce Labs](#sauce-labs)
+  - [Scrutinizer CI](#scrutinizer-ci)
+- [Known Issues](#known-issues)
+- [See Also](#see-also)
+- [Change Log](#change-log)
 - [Credit](#credit)
 - [License](#license)
 
@@ -42,9 +47,9 @@ I can save someone some hassle trying to get Nginx set up for their project.
 
 The script is tailored on Travis CI PHP build images and might not work in every situation. Below is an basic example of `.travis.yml`:
 
-```yml
-# .travis.yml
+```
 
+# .travis.yml
 language: php
 
 sudo: false
@@ -83,28 +88,103 @@ install:
   # Build the test suites
   - cd $TRAVIS_BUILD_DIR
   - composer install -n --prefer-dist
-  - vendor/bin/codecept build
+  - vendor/bin/codecept build -n
 
 script:
 	# Run the tests
   - cd $TRAVIS_BUILD_DIR
-  - vendor/bin/codecept run
+  - vendor/bin/codecept run -n --coverage --coverage-xml
   - phpcs --standard=ruleset.xml
 
 after_script:
  - tnw-send-result-to-saucelabs
  - tnw-upload-coverage-to-scrutinizer
+
+```
+
+And, this is an basic example of `codeception.dist.yml` which compatible with the above Travis settings:
+
+```
+
+# codeception.dist.yml
+actor: Tester
+paths:
+  tests: tests
+  log: tests/_output
+  data: tests/_data
+  helpers: tests/_support
+settings:
+  bootstrap: _bootstrap.php
+  colors: true
+  memory_limit: 1024M
+coverage:
+  enabled: true
+  include:
+    - src/my-plugin/*
+  exclude:
+    - src/my-plugin/partials/*
+params: [env] # get parameters from environment vars
+modules:
+  config:
+    WPDb:
+      dsn: 'mysql:host=localhost;dbname=wordpress'
+      user: root
+      password: ''
+      dump: tests/_data/dump.sql
+      populate: true
+      cleanup: true
+      url: 'http://wp.dev:8080'
+      tablePrefix: wp_
+    WPBrowser:
+      url: 'http://wp.dev:8080'
+      adminUsername: admin
+      adminPassword: password
+      adminPath: /wp-admin
+    WordPress:
+      depends: WPDb
+      wpRootFolder: /tmp/wordpress
+      adminUsername: admin
+      adminPassword: password
+    WPLoader:
+      wpRootFolder: /tmp/wordpress
+      dbName: wordpress_int
+      dbHost: localhost
+      dbUser: root
+      dbPassword: ''
+      tablePrefix: int_wp_
+      domain: wordpress.dev
+      adminEmail: admin@wordpress.dev
+      plugins: [my-plugin/my-plugin.php]
+      activatePlugins: [my-plugin/my-plugin.php]
+    WPWebDriver:
+      url: 'http://wp.dev:8080'
+      port: 4444
+      window_size: '1024x768'
+      adminUsername: admin
+      adminPassword: password
+      adminPath: /wp-admin
+      # Sauce Labs
+      host: '%SAUCE_USERNAME%:%SAUCE_ACCESS_KEY%@ondemand.saucelabs.com'
+      browser: firefox
+      capabilities:
+          platform: 'Windows 10'
+          version: '50.0'
+          screenResolution: '1024x768'
+          tunnel-identifier: '%TRAVIS_JOB_NUMBER%'
+          name: 'WPBS %TRAVIS_JOB_NUMBER% on WP-%WP_VERSION% with PHP-%TRAVIS_PHP_VERSION%'
+          build: '%TRAVIS_JOB_NUMBER%'
+
 ```
 
 ## Customization
 
 The default scripts install WordPress core on `/tmp/wordpress` and serve it at `http://wp.dev:8080`.
 
-You can customize the build via environment variables. Check the variables of the functions in the `/bin` folder for available configuration.
+You can customize the build via environment variables. Check the variables of the functions in the [bin](./bin) director for available configuration.
 
-## How does the installation works?
+## How does it works?
 
-All of the setup scripts are located in the [bin](./travis) directory and template files are in the [tpl](./tpl) directory. They are short and basic so it should be relatively easy to follow. The other scripts are basic Nginx and php-fpm configuration templates. The repository defines 6 setup scripts:
+All of the setup scripts are located in the [bin](./bin) directory and template files are in the [tpl](./tpl) directory. They are short and basic so it should be relatively easy to follow. The repository defines 6 setup scripts:
 
 1. `tnw-install-wordpress`
     - Install WordPress
@@ -115,7 +195,7 @@ All of the setup scripts are located in the [bin](./travis) directory and templa
 1. `tnw-install-wpcs`
     - Prepare [Codeception](http://codeception.com/) environment
 1. `tnw-send-result-to-saucelabs`
-    - Send Travis test result to [SauceLabs](https://saucelabs.com/)
+    - Send Travis test result to [Sauce Labs](https://saucelabs.com/)
 1. `tnw-upload-coverage-to-scrutinizer`
     - Upload test coverage to [Scrutinizer](https://scrutinizer-ci.com)
 
@@ -127,32 +207,82 @@ The WordPress installation is done through the
 1. Create the WordPress database.
 1. Download WordPress core.
 1. Generate the `wp-config.php` file.
-    - Note that we added `define( 'AUTOMATIC_UPDATER_DISABLED', true );`.
+    - Note that `define( 'AUTOMATIC_UPDATER_DISABLED', true );` is added.
 1. Install the WordPress database.
 
 ### Nginx
 
 The Nginx installation is done through the
-[install-nginx](./bin/install-nginx) bash script. The basic install process goes as follows:
+[tnw-install-nginx](./bin/tnw-install-nginx) bash script. The basic install process goes as follows:
 
 1. Install Nginx using the [apt addon](https://docs.travis-ci.com/user/installing-dependencies/#Installing-Packages-with-the-APT-Addon) via entries in the [.travis.yml](./.travis.yml) file.
 1. Copy the configuration templates to a new directory while replacing placeholders with environment variables.
 1. Start php-fpm and Nginx with our custom configuration file instead of the default.
 
-## Known issues
+### Codeception
+
+The Codeception preparation is done through the
+[tnw-prepare-codeception](./bin/tnw-prepare-codeception) bash script. The basic install process goes as follows:
+
+1. Create an extra database for testing.
+1. Import database dump to WordPress.
+1. Upgrade the WordPress database.
+1. Export the WordPress database dump for later use.
+
+### WordPress coding standard
+
+The WordPress coding standard installation is done through the
+[tnw-install-wpcs](./bin/tnw-install-wpcs) bash script. The basic install process goes as follows:
+
+1. Clone the standard from [Github](https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards).
+1. Configure `phpcs` to use the standard.
+
+### Sauce Labs
+
+The WordPress coding standard installation is done through the
+[tnw-send-result-to-saucelabs](./bin/tnw-send-result-to-saucelabs) bash script. The basic process goes as follows:
+
+1. Find Sauce Labs job id by `$TRAVIS_JOB_NUMBER`.
+1. Determine test result by `$TRAVIS_TEST_RESULT`.
+1. Send test result to Sauce Labs via REST API.
+
+Note: You must annotate Sauce Labs job's `build` equals to `$TRAVIS_JOB_NUMBER` like so:
+
+```
+modules:
+	config:
+		WPWebDriver:
+			capabilities:
+				build: '%TRAVIS_JOB_NUMBER%'
+```
+
+### Scrutinizer CI
+
+The Scrutinizer CI test coverage uploading is done through the
+[tnw-upload-coverage-to-scrutinizer](./bin/tnw-upload-coverage-to-scrutinizer) bash script. The basic install process goes as follows:
+
+1. Download [ocular](https://github.com/scrutinizer-ci/ocular).
+1. Upload the test coverage file to Scrutinizer CI.
+
+## Known Issues
 
 * Nginx gives alert messages during start which is safe to ignore.
+
 	```
 	$ install-nginx
   [26-Dec-2046 00:00:00] NOTICE: [pool travis] 'user' directive is ignored when FPM is not running as root
   nginx: [alert] could not open error log file: open() "/var/log/nginx/error.log" failed (13: Permission denied)
 	```
 
-## See also
+## See Also
 
 * [Running Nginx as a Non-Root User](https://www.exratione.com/2014/03/running-nginx-as-a-non-root-user/)
 * [Travis CI Nginx Test (the original repo)](https://github.com/tburry/travis-nginx-test)
 * [Travis CI Apache Virtualhost configuration script](https://github.com/lucatume/travis-apache-setup)
+
+## Change Log
+
+See [CHANGELOG.md](./CHANGELOG.md).
 
 ## Credit
 
@@ -160,4 +290,4 @@ The Nginx installation is done through the
 
 ## License
 
-[Travis CI Nginx WordPress Test](https://github.com/TypistTech/travis-nginx-wordpress) is released under the MIT License.
+[Travis CI Nginx WordPress Test](https://github.com/TypistTech/travis-nginx-wordpress) is released under the [MIT License](https://opensource.org/licenses/MIT).
