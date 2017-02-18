@@ -1,10 +1,23 @@
 #!/usr/bin/env bash
 
 function tnw-prepare-codeception {
+	TNW_OLD_PHANTOMJS_PATH=${TNW_OLD_PHANTOMJS_PATH-/usr/bin/phantomjs}
+	TNW_CODECEPTION_YML=${TNW_CODECEPTION_YML=$TRAVIS_BUILD_DIR/codeception.yml}
+	TNW_CODECEPTION_DIST_YML=${TNW_CODECEPTION__DIST_YML=$TRAVIS_BUILD_DIR/codeception.dist.yml}
+
   WP_CORE_DIR=${WP_CORE_DIR-/tmp/wordpress/}
 	DB_DUMP=${DB_DUMP-$TRAVIS_BUILD_DIR/tests/_data/dump.sql}
 	DB_NAME_INT=${DB_NAME_INT-wordpress_int}
 
+	# Codeception Config
+	if [ -f $TNW_CODECEPTION_YML ]; then
+		sed -i "s_$TNW_OLD_PHANTOMJS_PATH_$(which phantomjs)_" $TNW_CODECEPTION_YML;
+	fi
+	if [ -f $TNW_CODECEPTION_DIST_YML ]; then
+		sed -i "s_$TNW_OLD_PHANTOMJS_PATH_$(which phantomjs)_" $TNW_CODECEPTION_DIST_YML;
+	fi
+
+	# Prepare WordPress database dump
 	mysql -u root -e "create database IF NOT EXISTS $DB_NAME_INT"
 
 	if [ -f $DB_DUMP ]; then
