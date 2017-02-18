@@ -1,5 +1,17 @@
 # Change Log
 
+## [1.1.0](https://github.com/TypistTech/travis-nginx-wordpress/tree/1.1.0) (2017-02-19)
+[Full Changelog](https://github.com/TypistTech/travis-nginx-wordpress/compare/1.0.0...1.1.0)
+
+**Implemented enhancements:**
+
+- Replace phantomjs path in codeception.yml and codeception.dist.yml [\#5](https://github.com/TypistTech/travis-nginx-wordpress/pull/5) ([TangRufus](https://github.com/TangRufus))
+
+**Merged pull requests:**
+
+- Update installation guide in readme [\#4](https://github.com/TypistTech/travis-nginx-wordpress/pull/4) ([TangRufus](https://github.com/TangRufus))
+- Add document to README.md [\#2](https://github.com/TypistTech/travis-nginx-wordpress/pull/2) ([TangRufus](https://github.com/TangRufus))
+
 ## [1.0.0](https://github.com/TypistTech/travis-nginx-wordpress/tree/1.0.0) (2017-02-17)
 **Merged pull requests:**
 
