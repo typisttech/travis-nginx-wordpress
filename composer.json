@@ -38,7 +38,8 @@
   },
   "suggest": {
     "codeception/codeception": "Modern full-stack testing framework for PHP",
-    "lucatume/wp-browser": "WordPress specific set of extensions for Codeception"
+    "lucatume/wp-browser": "WordPress specific set of extensions for Codeception",
+		"site5/phantoman": "Automatically starting and stopping PhantomJS when running tests"
   },
   "bin": [
     "bin/tnw-install-nginx",

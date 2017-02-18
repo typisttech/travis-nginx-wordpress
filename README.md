@@ -225,6 +225,7 @@ The Nginx installation is done through the
 The Codeception preparation is done through the
 [tnw-prepare-codeception](./bin/tnw-prepare-codeception) bash script. The basic install process goes as follows:
 
+1. Replace `phantomjs` path to the TravisCI one in `codeception.yml` and `codeception.dist.yml`.
 1. Create an extra database for testing.
 1. Import database dump to WordPress.
 1. Upgrade the WordPress database.
