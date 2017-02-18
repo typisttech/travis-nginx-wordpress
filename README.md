@@ -78,7 +78,8 @@ env:
 
 before_install:
   # Install helper scripts
-  - composer global require -n --prefer-dist "typisttech/travis-nginx-wordpress:^0.1.2"
+  - composer global require -n --prefer-dist "typisttech/travis-nginx-wordpress:^1.0.0"
+  - export PATH=$HOME/.composer/vendor/bin:$PATH
   - tnw-install-nginx
   - tnw-install-wordpress
   - tnw-prepare-codeception
