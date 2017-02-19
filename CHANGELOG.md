@@ -1,6 +1,13 @@
 # Change Log
 
-## [1.1.0](https://github.com/TypistTech/travis-nginx-wordpress/tree/1.1.0) (2017-02-19)
+## [1.1.1](https://github.com/TypistTech/travis-nginx-wordpress/tree/1.1.1) (2017-02-19)
+[Full Changelog](https://github.com/TypistTech/travis-nginx-wordpress/compare/1.1.0...1.1.1)
+
+**Merged pull requests:**
+
+- Fix: Replace phantomjs path correctly [\#7](https://github.com/TypistTech/travis-nginx-wordpress/pull/7) ([TangRufus](https://github.com/TangRufus))
+
+## [1.1.0](https://github.com/TypistTech/travis-nginx-wordpress/tree/1.1.0) (2017-02-18)
 [Full Changelog](https://github.com/TypistTech/travis-nginx-wordpress/compare/1.0.0...1.1.0)
 
 **Implemented enhancements:**
@@ -9,6 +16,7 @@
 
 **Merged pull requests:**
 
+- Version bump 1.1.0 [\#6](https://github.com/TypistTech/travis-nginx-wordpress/pull/6) ([TangRufus](https://github.com/TangRufus))
 - Update installation guide in readme [\#4](https://github.com/TypistTech/travis-nginx-wordpress/pull/4) ([TangRufus](https://github.com/TangRufus))
 - Add document to README.md [\#2](https://github.com/TypistTech/travis-nginx-wordpress/pull/2) ([TangRufus](https://github.com/TangRufus))
 
