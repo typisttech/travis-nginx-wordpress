@@ -231,6 +231,19 @@ The Codeception preparation is done through the
 1. Upgrade the WordPress database.
 1. Export the WordPress database dump for later use.
 
+Note: The `phantomjs` path must be wrapped in single quotes.
+
+```
+extensions:
+  enabled:
+    - Codeception\Extension\Phantoman
+  config:
+    Codeception\Extension\Phantoman:
+      path: '/usr/bin/phantomjs'
+      port: 4444
+      suites: ['acceptance']
+```
+
 ### WordPress coding standard
 
 The WordPress coding standard installation is done through the
