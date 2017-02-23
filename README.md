@@ -100,6 +100,7 @@ script:
 after_script:
  - tnw-send-result-to-saucelabs
  - tnw-upload-coverage-to-scrutinizer
+ - tnw-upload-coverage-to-codecov
 
 ```
 
@@ -197,6 +198,8 @@ All of the setup scripts are located in the [bin](./bin) directory and template 
     - Prepare [Codeception](http://codeception.com/) environment
 1. `tnw-send-result-to-saucelabs`
     - Send Travis test result to [Sauce Labs](https://saucelabs.com/)
+1. `tnw-upload-coverage-to-codecov`
+    - Upload test coverage to [codecov.io](https://codecov.io)
 1. `tnw-upload-coverage-to-scrutinizer`
     - Upload test coverage to [Scrutinizer](https://scrutinizer-ci.com)
 
@@ -270,6 +273,13 @@ modules:
 			capabilities:
 				build: '%TRAVIS_JOB_NUMBER%'
 ```
+
+### Codecov.io
+
+The Codecov.io test coverage uploading is done through the
+[tnw-upload-coverage-to-codecov](./bin/tnw-upload-coverage-to-codecov) bash script. The basic install process goes as follows:
+
+1. Run the [codecov-bash](https://github.com/codecov/codecov-bash) script.
 
 ### Scrutinizer CI
 
