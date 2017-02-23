@@ -1,7 +1,7 @@
 {
   "name": "typisttech/travis-nginx-wordpress",
   "description": "A basic template for Nginx and WordPress running on Travis CI's container based infrastructure.",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "keywords": [
     "travis",
     "nginx",
@@ -47,6 +47,7 @@
     "bin/tnw-install-wpcs",
     "bin/tnw-prepare-codeception",
     "bin/tnw-send-result-to-saucelabs",
+		"bin/tnw-upload-coverage-to-codecov",
 		"bin/tnw-upload-coverage-to-scrutinizer"
   ]
 }
