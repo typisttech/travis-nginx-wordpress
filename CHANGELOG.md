@@ -1,5 +1,12 @@
 # Change Log
 
+## [1.2.0](https://github.com/TypistTech/travis-nginx-wordpress/tree/1.2.0) (2017-02-24)
+[Full Changelog](https://github.com/TypistTech/travis-nginx-wordpress/compare/1.1.1...1.2.0)
+
+**Merged pull requests:**
+
+- Add tnw-upload-coverage-to-codecov [\#8](https://github.com/TypistTech/travis-nginx-wordpress/pull/8) ([TangRufus](https://github.com/TangRufus))
+
 ## [1.1.1](https://github.com/TypistTech/travis-nginx-wordpress/tree/1.1.1) (2017-02-19)
 [Full Changelog](https://github.com/TypistTech/travis-nginx-wordpress/compare/1.1.0...1.1.1)
 
