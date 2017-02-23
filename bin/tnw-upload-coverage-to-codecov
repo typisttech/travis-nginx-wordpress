@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+function tnw-upload-coverage-to-codecov {
+	bash <(curl -s https://codecov.io/bash);
+}
+
+tnw-upload-coverage-to-codecov
