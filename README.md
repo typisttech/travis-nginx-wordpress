@@ -22,7 +22,6 @@ A basic template for Nginx and WordPress running on Travis CI's container based 
   - [WordPress](#wordpress)
   - [Nginx](#nginx)
   - [Codeception](#codeception)
-  - [WordPress coding standard](#wordpress-coding-standard)
   - [Sauce Labs](#sauce-labs)
   - [Scrutinizer CI](#scrutinizer-ci)
 - [Known Issues](#known-issues)
@@ -83,7 +82,6 @@ before_install:
   - tnw-install-nginx
   - tnw-install-wordpress
   - tnw-prepare-codeception
-  - tnw-install-wpcs
 
 install:
   # Build the test suites
@@ -95,7 +93,6 @@ script:
 	# Run the tests
   - cd $TRAVIS_BUILD_DIR
   - vendor/bin/codecept run -n --coverage --coverage-xml
-  - phpcs --standard=ruleset.xml
 
 after_script:
  - tnw-send-result-to-saucelabs
@@ -194,8 +191,6 @@ All of the setup scripts are located in the [bin](./bin) directory and template 
     - Setup Nginx to serve a website from a folder on a local domain
 1. `tnw-prepare-codeception`
     - Install [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) and [WordPress coding standard](https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards)
-1. `tnw-install-wpcs`
-    - Prepare [Codeception](http://codeception.com/) environment
 1. `tnw-send-result-to-saucelabs`
     - Send Travis test result to [Sauce Labs](https://saucelabs.com/)
 1. `tnw-upload-coverage-to-codecov`
@@ -246,14 +241,6 @@ extensions:
       port: 4444
       suites: ['acceptance']
 ```
-
-### WordPress coding standard
-
-The WordPress coding standard installation is done through the
-[tnw-install-wpcs](./bin/tnw-install-wpcs) bash script. The basic install process goes as follows:
-
-1. Clone the standard from [Github](https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards).
-1. Configure `phpcs` to use the standard.
 
 ### Sauce Labs
 
