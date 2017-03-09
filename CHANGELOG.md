@@ -1,10 +1,25 @@
 # Change Log
 
-## [1.2.0](https://github.com/TypistTech/travis-nginx-wordpress/tree/1.2.0) (2017-02-24)
+## [2.0.0](https://github.com/TypistTech/travis-nginx-wordpress/tree/2.0.0) (2017-03-09)
+[Full Changelog](https://github.com/TypistTech/travis-nginx-wordpress/compare/1.2.1...2.0.0)
+
+**Merged pull requests:**
+
+- Remove wpcs [\#11](https://github.com/TypistTech/travis-nginx-wordpress/pull/11) ([TangRufus](https://github.com/TangRufus))
+
+## [1.2.1](https://github.com/TypistTech/travis-nginx-wordpress/tree/1.2.1) (2017-02-23)
+[Full Changelog](https://github.com/TypistTech/travis-nginx-wordpress/compare/1.2.0...1.2.1)
+
+**Merged pull requests:**
+
+- Fix tnw-upload-coverage-to-codecov: command not found [\#10](https://github.com/TypistTech/travis-nginx-wordpress/pull/10) ([TangRufus](https://github.com/TangRufus))
+
+## [1.2.0](https://github.com/TypistTech/travis-nginx-wordpress/tree/1.2.0) (2017-02-23)
 [Full Changelog](https://github.com/TypistTech/travis-nginx-wordpress/compare/1.1.1...1.2.0)
 
 **Merged pull requests:**
 
+- Version bump 1.2.0 [\#9](https://github.com/TypistTech/travis-nginx-wordpress/pull/9) ([TangRufus](https://github.com/TangRufus))
 - Add tnw-upload-coverage-to-codecov [\#8](https://github.com/TypistTech/travis-nginx-wordpress/pull/8) ([TangRufus](https://github.com/TangRufus))
 
 ## [1.1.1](https://github.com/TypistTech/travis-nginx-wordpress/tree/1.1.1) (2017-02-19)
