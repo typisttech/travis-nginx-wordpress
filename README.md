@@ -127,41 +127,36 @@ modules:
   config:
     WPDb:
       dsn: 'mysql:host=localhost;dbname=wordpress'
-      user: root
+      user: 'root'
       password: ''
-      dump: tests/_data/dump.sql
-      populate: true
-      cleanup: true
+      dump: 'tests/_data/dump.sql'
       url: 'http://wp.dev:8080'
-      tablePrefix: wp_
     WPBrowser:
       url: 'http://wp.dev:8080'
-      adminUsername: admin
-      adminPassword: password
-      adminPath: /wp-admin
+      adminUsername: 'admin'
+      adminPassword: 'password'
+      adminPath: '/wp-admin'
     WordPress:
       depends: WPDb
-      wpRootFolder: /tmp/wordpress
-      adminUsername: admin
-      adminPassword: password
+      wpRootFolder: '/tmp/wordpress'
+      adminUsername: 'admin'
+      adminPassword: 'password'
     WPLoader:
-      wpRootFolder: /tmp/wordpress
-      dbName: wordpress_int
-      dbHost: localhost
-      dbUser: root
+      wpRootFolder: '/tmp/wordpress'
+      dbName: 'wordpress_int'
+      dbHost: 'localhost'
+      dbUser: 'root'
       dbPassword: ''
-      tablePrefix: int_wp_
-      domain: wordpress.dev
-      adminEmail: admin@wordpress.dev
-      plugins: [my-plugin/my-plugin.php]
-      activatePlugins: [my-plugin/my-plugin.php]
+      tablePrefix: 'int_wp_'
+      domain: 'wordpress.dev'
+      adminEmail: 'admin@wordpress.dev'
     WPWebDriver:
       url: 'http://wp.dev:8080'
       port: 4444
       window_size: '1024x768'
-      adminUsername: admin
-      adminPassword: password
-      adminPath: /wp-admin
+      adminUsername: 'admin'
+      adminPassword: 'password'
+      adminPath: '/wp-admin'
       # Sauce Labs
       host: '%SAUCE_USERNAME%:%SAUCE_ACCESS_KEY%@ondemand.saucelabs.com'
       browser: firefox
