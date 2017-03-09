@@ -33,7 +33,6 @@
     "source": "https://github.com/TypistTech/travis-nginx-wordpress"
   },
   "require": {
-    "squizlabs/php_codesniffer": "^2.7.0",
     "wp-cli/wp-cli": "^1.0.0"
   },
   "suggest": {
@@ -44,7 +43,6 @@
   "bin": [
     "bin/tnw-install-nginx",
     "bin/tnw-install-wordpress",
-    "bin/tnw-install-wpcs",
     "bin/tnw-prepare-codeception",
     "bin/tnw-send-result-to-saucelabs",
 		"bin/tnw-upload-coverage-to-codecov",

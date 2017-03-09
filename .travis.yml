@@ -48,7 +48,6 @@ install:
   - tnw-install-nginx
   - tnw-install-wordpress
   - tnw-prepare-codeception
-  - tnw-install-wpcs
 
 script:
   ### Assert that WordPress is served at `http://wp.dev:8080`
@@ -63,6 +62,3 @@ script:
 
   # Display the WordPress version.
   - wp core version --path=/tmp/wordpress
-
-  # Show a list of installed coding standards
-  - phpcs -i
