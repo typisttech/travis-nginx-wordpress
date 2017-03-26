@@ -1,7 +1,6 @@
 {
   "name": "typisttech/travis-nginx-wordpress",
   "description": "A basic template for Nginx and WordPress running on Travis CI's container based infrastructure.",
-  "version": "2.0.0",
   "keywords": [
     "travis",
     "nginx",
@@ -33,7 +32,7 @@
     "source": "https://github.com/TypistTech/travis-nginx-wordpress"
   },
   "require": {
-    "wp-cli/wp-cli": "^1.0.0"
+    "wp-cli/wp-cli": "^1.1.0"
   },
   "bin": [
     "bin/tnw-install-nginx",
