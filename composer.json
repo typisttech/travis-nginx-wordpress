@@ -1,45 +1,44 @@
 {
-  "name": "typisttech/travis-nginx-wordpress",
-  "description": "A basic template for Nginx and WordPress running on Travis CI's container based infrastructure.",
-  "keywords": [
-    "travis",
-    "nginx",
-    "wordpress",
-    "wpcs",
-    "phpcs",
-    "codeception",
-    "wp browser",
-    "acceptance test"
-  ],
-  "homepage": "https://github.com/TypistTech/travis-nginx-wordpress",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Typist Tech",
-      "email": "info@typist.tech",
-      "homepage": "https://www.typist.tech/"
+    "name": "typisttech/travis-nginx-wordpress",
+    "description": "A basic template for Nginx and WordPress running on Travis CI's container based infrastructure.",
+    "keywords": [
+        "travis",
+        "nginx",
+        "wordpress",
+        "wpcs",
+        "phpcs",
+        "codeception",
+        "wp browser",
+        "acceptance test"
+    ],
+    "homepage": "https://www.typist.tech/projects/travis-nginx-wordpress",
+    "license": "MIT",
+    "authors": [{
+            "name": "Typist Tech",
+            "email": "info@typist.tech",
+            "homepage": "https://www.typist.tech/"
+        },
+        {
+            "name": "Tang Rufus",
+            "email": "tangrufus@gmail.com",
+            "homepage": "https://www.typist.tech/",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "travis-nginx-wordpress@typist.tech",
+        "issues": "https://github.com/TypistTech/travis-nginx-wordpress/issues",
+        "source": "https://github.com/TypistTech/travis-nginx-wordpress"
     },
-    {
-      "name": "Tang Rufus",
-      "email": "tangrufus@gmail.com",
-      "homepage": "https://www.typist.tech/",
-      "role": "Developer"
-    }
-  ],
-  "support": {
-    "email": "travis-nginx-wordpress@typist.tech",
-    "issues": "https://github.com/TypistTech/travis-nginx-wordpress/issues",
-    "source": "https://github.com/TypistTech/travis-nginx-wordpress"
-  },
-  "require": {
-    "wp-cli/wp-cli": "^1.1.0"
-  },
-  "bin": [
-    "bin/tnw-install-nginx",
-    "bin/tnw-install-wordpress",
-    "bin/tnw-prepare-codeception",
-    "bin/tnw-send-result-to-saucelabs",
-		"bin/tnw-upload-coverage-to-codecov",
-		"bin/tnw-upload-coverage-to-scrutinizer"
-  ]
+    "require": {
+        "wp-cli/wp-cli": "^1.1.0"
+    },
+    "bin": [
+        "bin/tnw-install-nginx",
+        "bin/tnw-install-wordpress",
+        "bin/tnw-prepare-codeception",
+        "bin/tnw-send-result-to-saucelabs",
+        "bin/tnw-upload-coverage-to-codecov",
+        "bin/tnw-upload-coverage-to-scrutinizer"
+    ]
 }
