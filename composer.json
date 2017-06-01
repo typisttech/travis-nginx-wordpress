@@ -31,7 +31,7 @@
         "source": "https://github.com/TypistTech/travis-nginx-wordpress"
     },
     "require": {
-        "wp-cli/wp-cli": "^1.1.0"
+        "wp-cli/wp-cli": "~1.1.0"
     },
     "bin": [
         "bin/tnw-install-nginx",
