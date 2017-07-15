@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+function tnw-stop-nginx {
+	TNW_NGINX_DIR=${TNW_NGINX_DIR-$HOME/nginx}
+
+	nginx -c "$TNW_NGINX_DIR/nginx.conf" -s stop
+}
+
+tnw-stop-nginx

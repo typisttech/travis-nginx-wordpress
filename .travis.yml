@@ -1,7 +1,6 @@
 language: php
 
-# Wait until travis bug fixes
-sudo: required
+sudo: false
 
 dist: trusty
 
@@ -69,3 +68,6 @@ script:
 
   # Display the WordPress version.
   - wp core version --path=/tmp/wordpress
+
+after_script:
+  - tnw-stop-nginx

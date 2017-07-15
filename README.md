@@ -95,9 +95,10 @@ script:
   - vendor/bin/codecept run -n --coverage --coverage-xml
 
 after_script:
- - tnw-send-result-to-saucelabs
- - tnw-upload-coverage-to-scrutinizer
- - tnw-upload-coverage-to-codecov
+  - tnw-stop-nginx
+  - tnw-send-result-to-saucelabs
+  - tnw-upload-coverage-to-scrutinizer
+  - tnw-upload-coverage-to-codecov
 
 ```
 
@@ -273,7 +274,7 @@ The Scrutinizer CI test coverage uploading is done through the
 
 ## Known Issues
 
-* Nginx gives alert messages during start which is safe to ignore.
+* Nginx gives alert messages during start / stop which is safe to ignore.
 
 	```
 	$ install-nginx
