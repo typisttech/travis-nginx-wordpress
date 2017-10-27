@@ -1,7 +1,6 @@
 language: php
 
-# Wait until travis bug fixes
-sudo: required
+sudo: false
 
 dist: trusty
 
