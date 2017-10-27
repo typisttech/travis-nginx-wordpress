@@ -1,7 +1,6 @@
 language: php
 
-# Wait until travis bug fixes
-sudo: required
+sudo: false
 
 dist: trusty
 
@@ -31,6 +30,7 @@ notifications:
 php:
   - 7.0
   - 7.1
+  - 7.2
   - nightly
 
 env:
@@ -39,10 +39,13 @@ env:
   matrix:
     - WP_VERSION=nightly
     - WP_VERSION=latest
-    - WP_VERSION=4.7.3
-    - WP_VERSION=4.6.4
+    - WP_VERSION=4.8.2
+    - WP_VERSION=4.7.6
 
 matrix:
+  allow_failures:
+    - php: nightly
+    - env: WP_VERSION=nightly
   fast_finish: true
 
 before_install:
