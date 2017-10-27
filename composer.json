@@ -15,7 +15,7 @@
     "license": "MIT",
     "authors": [{
             "name": "Typist Tech",
-            "email": "info@typist.tech",
+            "email": "travis-nginx-wordpress@typist.tech",
             "homepage": "https://www.typist.tech/"
         },
         {
@@ -31,7 +31,10 @@
         "source": "https://github.com/TypistTech/travis-nginx-wordpress"
     },
     "require": {
-        "wp-cli/wp-cli": "^1.2.1"
+        "wp-cli/wp-cli": "^1.4"
+    },
+    "config": {
+        "sort-packages": true
     },
     "bin": [
         "bin/tnw-install-nginx",
