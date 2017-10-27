@@ -23,9 +23,17 @@ A basic template for Nginx and WordPress running on Travis CI's container based 
   - [Nginx](#nginx)
   - [Codeception](#codeception)
   - [Sauce Labs](#sauce-labs)
+  - [Codecov.io](#codecovio)
   - [Scrutinizer CI](#scrutinizer-ci)
 - [Known Issues](#known-issues)
 - [See Also](#see-also)
+- [Real life examples that use this package](#real-life-examples-that-use-this-package)
+- [Support!](#support)
+  - [Donate via PayPal *](#donate-via-paypal-)
+  - [Donate Monero](#donate-monero)
+  - [Mine me some Monero](#mine-me-some-monero)
+  - [Why don't you hire me?](#why-dont-you-hire-me)
+  - [Want to help in other way? Want to be a sponsor?](#want-to-help-in-other-way-want-to-be-a-sponsor)
 - [Change Log](#change-log)
 - [Credit](#credit)
 - [License](#license)
@@ -70,10 +78,13 @@ addons:
 php:
   - 7.0
   - 7.1
+  - 7.2
+  - nightly
 
 env:
   - WP_VERSION=latest
-  - WP_VERSION=4.7.2
+  - WP_VERSION=4.8.2
+  - WP_VERSION=4.7.6
 
 before_install:
   # Install helper scripts
@@ -286,6 +297,49 @@ The Scrutinizer CI test coverage uploading is done through the
 * [Running Nginx as a Non-Root User](https://www.exratione.com/2014/03/running-nginx-as-a-non-root-user/)
 * [Travis CI Nginx Test (the original repo)](https://github.com/tburry/travis-nginx-test)
 * [Travis CI Apache Virtualhost configuration script](https://github.com/lucatume/travis-apache-setup)
+
+## Real life examples that use this package
+
+Here you go:
+
+ * [Sunny](https://github.com/Typisttech/sunny)
+ * [WP Cloudflare Guard](https://github.com/TypistTech/wp-cloudflare-guard)
+ * [All those WordPress PHP libraries I made](https://github.com/search?utf8=%E2%9C%93&q=topic%3Awordpress-php-library+org%3ATypistTech&type=Repositories)
+
+*Add your own [here](https://github.com/TypistTech/travis-nginx-wordpress/edit/master/README.md)*
+
+## Support!
+
+### Donate via PayPal [![Donate via PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.typist.tech/donate/travis-nginx-wordpress/)
+
+Love this project? Help me maintain this project, a [donation here](https://www.typist.tech/donate/travis-nginx-wordpress/) can help with it.
+
+### Donate Monero
+
+Send Monero to my public address: `43fiS7JzAK7eSHCpjTL5J1JYqPb6pvM2dGex7aoFZ5u5e5QRg6NKNnFGXqPh6C53E3M8UvqzemVt43uLgimwDpW41zXUHAp`
+
+### Mine me some Monero
+
+1. Open one of the follow web pages open on your computer
+2. Start the miner
+3. Adjust threads and CPU usages
+4. Keep it running
+
+If you have an AdBlocker:
+
+[https://authedmine.com/media/miner.html?key=I2z6pueJaeVCz5dh1uA8cru5Fl108DtH&user=travis-nginx-wordpress&autostart=1](https://authedmine.com/media/miner.html?key=I2z6pueJaeVCz5dh1uA8cru5Fl108DtH&user=travis-nginx-wordpress&autostart=1)
+
+else:
+
+[https://coinhive.com/media/miner.html?key=I2z6pueJaeVCz5dh1uA8cru5Fl108DtH&user=travis-nginx-wordpress&autostart=1](https://coinhive.com/media/miner.html?key=I2z6pueJaeVCz5dh1uA8cru5Fl108DtH&user=travis-nginx-wordpress&autostart=1)
+
+### Why don't you hire me?
+
+Ready to take freelance WordPress jobs. Contact me via the contact form [here](https://www.typist.tech/contact/) or, via email [info@typist.tech](mailto:info@typist.tech)
+
+### Want to help in other way? Want to be a sponsor?
+
+Contact: [Tang Rufus](mailto:tangrufus@gmail.com)
 
 ## Change Log
 
