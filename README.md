@@ -4,7 +4,6 @@
 [![Total Downloads](https://poser.pugx.org/typisttech/travis-nginx-wordpress/downloads)](https://packagist.org/packages/typisttech/travis-nginx-wordpress)
 [![Build Status](https://travis-ci.org/TypistTech/travis-nginx-wordpress.svg?branch=master)](https://travis-ci.org/TypistTech/travis-nginx-wordpress)
 [![PHP Versions Tested](http://php-eye.com/badge/typisttech/travis-nginx-wordpress/tested.svg)](https://travis-ci.org/TypistTech/travis-nginx-wordpress)
-[![Latest Unstable Version](https://poser.pugx.org/typisttech/travis-nginx-wordpress/v/unstable)](https://packagist.org/packages/typisttech/travis-nginx-wordpress)
 [![Dependency Status](https://gemnasium.com/badges/github.com/TypistTech/travis-nginx-wordpress.svg)](https://gemnasium.com/github.com/TypistTech/travis-nginx-wordpress)
 [![License](https://poser.pugx.org/typisttech/travis-nginx-wordpress/license)](https://packagist.org/packages/typisttech/travis-nginx-wordpress)
 
