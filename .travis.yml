@@ -1,9 +1,5 @@
 language: php
 
-sudo: false
-
-dist: trusty
-
 branches:
   only:
     - master
@@ -21,6 +17,8 @@ addons:
   apt:
     packages:
       - nginx
+  hosts:
+    - wp.dev
 
 notifications:
   email:
@@ -28,7 +26,6 @@ notifications:
     on_failure: change
 
 php:
-  - 7.0
   - 7.1
   - 7.2
   - nightly
@@ -39,8 +36,8 @@ env:
   matrix:
     - WP_VERSION=nightly
     - WP_VERSION=latest
-    - WP_VERSION=4.8.2
-    - WP_VERSION=4.7.6
+    - WP_VERSION=4.9.3
+    - WP_VERSION=4.8.5
 
 matrix:
   allow_failures:
@@ -52,9 +49,11 @@ before_install:
   - export PATH="$TRAVIS_BUILD_DIR/vendor/bin:$PATH"
   - export PATH="$TRAVIS_BUILD_DIR/bin:$PATH"
   - export TNW_TPL_DIR="$TRAVIS_BUILD_DIR/tpl"
-  - composer install -n --prefer-dist --no-suggest
 
 install:
+  - composer install --prefer-dist --no-suggest
+
+before_script:
   - tnw-install-nginx
   - tnw-install-wordpress
   - tnw-prepare-codeception

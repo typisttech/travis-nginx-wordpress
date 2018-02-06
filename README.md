@@ -58,8 +58,6 @@ The script is tailored on Travis CI PHP build images and might not work in every
 # .travis.yml
 language: php
 
-sudo: false
-
 services:
   - mysql
 
@@ -73,21 +71,26 @@ addons:
     packages:
       - jq
       - nginx
+    hosts:
+      - wp.dev
 
 php:
-  - 7.0
   - 7.1
   - 7.2
   - nightly
 
-env:
-  - WP_VERSION=latest
-  - WP_VERSION=4.8.2
-  - WP_VERSION=4.7.6
+  env:
+    global:
+      - COMPOSER_NO_INTERACTION=1
+    matrix:
+      - WP_VERSION=nightly
+      - WP_VERSION=latest
+      - WP_VERSION=4.9.3
+      - WP_VERSION=4.8.5
 
 before_install:
   # Install helper scripts
-  - composer global require -n --prefer-dist "typisttech/travis-nginx-wordpress:^1.0.0"
+  - composer global require --prefer-dist "typisttech/travis-nginx-wordpress:^1.0.0"
   - export PATH=$HOME/.composer/vendor/bin:$PATH
   - tnw-install-nginx
   - tnw-install-wordpress
