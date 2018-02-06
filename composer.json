@@ -40,7 +40,6 @@
         "bin/tnw-install-nginx",
         "bin/tnw-install-wordpress",
         "bin/tnw-prepare-codeception",
-        "bin/tnw-send-result-to-saucelabs",
         "bin/tnw-upload-coverage-to-codecov",
         "bin/tnw-upload-coverage-to-scrutinizer"
     ]

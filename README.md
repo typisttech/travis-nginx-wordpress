@@ -69,7 +69,6 @@ cache:
 addons:
   apt:
     packages:
-      - jq
       - nginx
     hosts:
       - wp.dev
@@ -108,7 +107,6 @@ script:
   - vendor/bin/codecept run -n --coverage --coverage-xml
 
 after_script:
- - tnw-send-result-to-saucelabs
  - tnw-upload-coverage-to-scrutinizer
  - tnw-upload-coverage-to-codecov
 
@@ -170,17 +168,6 @@ modules:
       adminUsername: 'admin'
       adminPassword: 'password'
       adminPath: '/wp-admin'
-      # Sauce Labs
-      host: '%SAUCE_USERNAME%:%SAUCE_ACCESS_KEY%@ondemand.saucelabs.com'
-      browser: firefox
-      capabilities:
-          platform: 'Windows 10'
-          version: '50.0'
-          screenResolution: '1024x768'
-          tunnel-identifier: '%TRAVIS_JOB_NUMBER%'
-          name: 'WPBS %TRAVIS_JOB_NUMBER% on WP-%WP_VERSION% with PHP-%TRAVIS_PHP_VERSION%'
-          build: '%TRAVIS_JOB_NUMBER%'
-
 ```
 
 ## Customization
@@ -199,8 +186,6 @@ All of the setup scripts are located in the [bin](./bin) directory and template 
     - Setup Nginx to serve a website from a folder on a local domain
 1. `tnw-prepare-codeception`
     - Install [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) and [WordPress coding standard](https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards)
-1. `tnw-send-result-to-saucelabs`
-    - Send Travis test result to [Sauce Labs](https://saucelabs.com/)
 1. `tnw-upload-coverage-to-codecov`
     - Upload test coverage to [codecov.io](https://codecov.io)
 1. `tnw-upload-coverage-to-scrutinizer`
@@ -248,25 +233,6 @@ extensions:
       path: '/usr/bin/phantomjs'
       port: 4444
       suites: ['acceptance']
-```
-
-### Sauce Labs
-
-The WordPress coding standard installation is done through the
-[tnw-send-result-to-saucelabs](./bin/tnw-send-result-to-saucelabs) bash script. The basic process goes as follows:
-
-1. Find Sauce Labs job id by `$TRAVIS_JOB_NUMBER`.
-1. Determine test result by `$TRAVIS_TEST_RESULT`.
-1. Send test result to Sauce Labs via REST API.
-
-Note: You must annotate Sauce Labs job's `build` equals to `$TRAVIS_JOB_NUMBER` like so:
-
-```
-modules:
-	config:
-		WPWebDriver:
-			capabilities:
-				build: '%TRAVIS_JOB_NUMBER%'
 ```
 
 ### Codecov.io
