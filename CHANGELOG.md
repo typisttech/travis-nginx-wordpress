@@ -1,10 +1,38 @@
 # Change Log
 
+## [3.0.0](https://github.com/TypistTech/travis-nginx-wordpress/tree/3.0.0) (2018-02-06)
+[Full Changelog](https://github.com/TypistTech/travis-nginx-wordpress/compare/2.1.0...3.0.0)
+
+**Closed issues:**
+
+- Lock WP CLI version at ~1.1.0 for now [\#15](https://github.com/TypistTech/travis-nginx-wordpress/issues/15)
+
+**Merged pull requests:**
+
+- Remove `saucelabs` support [\#21](https://github.com/TypistTech/travis-nginx-wordpress/pull/21) ([TangRufus](https://github.com/TangRufus))
+- Update TravisCI config [\#20](https://github.com/TypistTech/travis-nginx-wordpress/pull/20) ([TangRufus](https://github.com/TangRufus))
+- Misc: Typist Tech code style [\#19](https://github.com/TypistTech/travis-nginx-wordpress/pull/19) ([TangRufus](https://github.com/TangRufus))
+
+## [2.1.0](https://github.com/TypistTech/travis-nginx-wordpress/tree/2.1.0) (2017-08-06)
+[Full Changelog](https://github.com/TypistTech/travis-nginx-wordpress/compare/2.0.2...2.1.0)
+
+**Merged pull requests:**
+
+- composer update [\#18](https://github.com/TypistTech/travis-nginx-wordpress/pull/18) ([TangRufus](https://github.com/TangRufus))
+
+## [2.0.2](https://github.com/TypistTech/travis-nginx-wordpress/tree/2.0.2) (2017-06-01)
+[Full Changelog](https://github.com/TypistTech/travis-nginx-wordpress/compare/2.0.1...2.0.2)
+
+**Merged pull requests:**
+
+- Lock WP CLI version at ~1.1.0 [\#16](https://github.com/TypistTech/travis-nginx-wordpress/pull/16) ([TangRufus](https://github.com/TangRufus))
+
 ## [2.0.1](https://github.com/TypistTech/travis-nginx-wordpress/tree/2.0.1) (2017-03-26)
 [Full Changelog](https://github.com/TypistTech/travis-nginx-wordpress/compare/2.0.0...2.0.1)
 
 **Merged pull requests:**
 
+- Version bump 2.0.1 [\#14](https://github.com/TypistTech/travis-nginx-wordpress/pull/14) ([TangRufus](https://github.com/TangRufus))
 - Test on Travis trusty [\#13](https://github.com/TypistTech/travis-nginx-wordpress/pull/13) ([TangRufus](https://github.com/TangRufus))
 
 ## [2.0.0](https://github.com/TypistTech/travis-nginx-wordpress/tree/2.0.0) (2017-03-09)
