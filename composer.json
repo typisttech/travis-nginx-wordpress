@@ -31,7 +31,7 @@
         "source": "https://github.com/TypistTech/travis-nginx-wordpress"
     },
     "require": {
-        "wp-cli/wp-cli": "^1.4"
+        "wp-cli/wp-cli": "^1.5"
     },
     "config": {
         "sort-packages": true
