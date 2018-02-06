@@ -4,9 +4,8 @@
 [![Total Downloads](https://poser.pugx.org/typisttech/travis-nginx-wordpress/downloads)](https://packagist.org/packages/typisttech/travis-nginx-wordpress)
 [![Build Status](https://travis-ci.org/TypistTech/travis-nginx-wordpress.svg?branch=master)](https://travis-ci.org/TypistTech/travis-nginx-wordpress)
 [![PHP Versions Tested](http://php-eye.com/badge/typisttech/travis-nginx-wordpress/tested.svg)](https://travis-ci.org/TypistTech/travis-nginx-wordpress)
-[![Dependency Status](https://gemnasium.com/badges/github.com/TypistTech/travis-nginx-wordpress.svg)](https://gemnasium.com/github.com/TypistTech/travis-nginx-wordpress)
 [![License](https://poser.pugx.org/typisttech/travis-nginx-wordpress/license)](https://packagist.org/packages/typisttech/travis-nginx-wordpress)
-
+[![Hire Typist Tech](https://img.shields.io/badge/Hire-Typist%20Tech-ff69b4.svg)](https://typist.tech/contact/)
 
 A basic template for Nginx and WordPress running on Travis CI's container based infrastructure.
 
@@ -278,32 +277,13 @@ Here you go:
 
 ## Support!
 
-### Donate via PayPal [![Donate via PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.typist.tech/donate/travis-nginx-wordpress/)
+### Donate via PayPal [![Donate via PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://typist.tech/donate/travis-nginx-wordpress/)
 
-Love this project? Help me maintain this project, a [donation here](https://www.typist.tech/donate/travis-nginx-wordpress/) can help with it.
-
-### Donate Monero
-
-Send Monero to my public address: `43fiS7JzAK7eSHCpjTL5J1JYqPb6pvM2dGex7aoFZ5u5e5QRg6NKNnFGXqPh6C53E3M8UvqzemVt43uLgimwDpW41zXUHAp`
-
-### Mine me some Monero
-
-1. Open one of the follow web pages open on your computer
-2. Start the miner
-3. Adjust threads and CPU usages
-4. Keep it running
-
-If you have an AdBlocker:
-
-[https://authedmine.com/media/miner.html?key=I2z6pueJaeVCz5dh1uA8cru5Fl108DtH&user=travis-nginx-wordpress&autostart=1](https://authedmine.com/media/miner.html?key=I2z6pueJaeVCz5dh1uA8cru5Fl108DtH&user=travis-nginx-wordpress&autostart=1)
-
-else:
-
-[https://coinhive.com/media/miner.html?key=I2z6pueJaeVCz5dh1uA8cru5Fl108DtH&user=travis-nginx-wordpress&autostart=1](https://coinhive.com/media/miner.html?key=I2z6pueJaeVCz5dh1uA8cru5Fl108DtH&user=travis-nginx-wordpress&autostart=1)
+Love Travis CI Nginx WordPress Test? Help me maintain Travis CI Nginx WordPress Test, a [donation here](https://typist.tech/donate/travis-nginx-wordpress/) can help with it.
 
 ### Why don't you hire me?
 
-Ready to take freelance WordPress jobs. Contact me via the contact form [here](https://www.typist.tech/contact/) or, via email [info@typist.tech](mailto:info@typist.tech)
+Ready to take freelance WordPress jobs. Contact me via the contact form [here](https://typist.tech/contact/) or, via email [info@typist.tech](mailto:info@typist.tech)
 
 ### Want to help in other way? Want to be a sponsor?
 
